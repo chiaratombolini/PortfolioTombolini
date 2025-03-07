@@ -18,14 +18,14 @@ def leggi_csv(file_path):
     dati = []
     with open(file_path, mode="r", encoding="utf-8") as file:
         reader = csv.reader(file)
-        next(reader)  # Salta l'intestazione se presente
+        next(reader)
         for riga in reader:
             dati.append(riga)
     return dati
 
-file_path = '/content/telefonate.csv'  # Usa il percorso corretto
+file_path = '/content/telefonate.csv' 
 dati_telefonate = leggi_csv(file_path)
-print(dati_telefonate[:5])  # Stampa le prime 5 righe per controllo
+print(dati_telefonate[:5])  
 
 def minuti_da_inizio_mese(g, h, m):
     """Calcola i minuti dall'inizio del mese."""
@@ -36,10 +36,10 @@ def ottieniDatiTelefonate(nomeFile):
     dati = []
     with open(nomeFile, newline='', encoding='utf-8') as csvfile:
         reader = csv.reader(csvfile)
-        next(reader)  # Salta l'intestazione
+        next(reader)  
         for row in reader:
             if row[0].startswith('#'):
-                continue  # Ignora righe di errore
+                continue 
             try:
                 cod_chiamante, cod_destinatario = int(row[0]), int(row[1])
                 cod_cella_chiamante, cod_cella_destinatario = int(row[2]), int(row[3])
